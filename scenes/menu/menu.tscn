@@ -1,18 +1,27 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=13 format=2]
 
-[ext_resource path="res://assets/ui-theme.tres" type="Theme" id=1]
-[ext_resource path="res://assets/fonts/open-sans/open-sans-bold.ttf" type="DynamicFontData" id=4]
+[ext_resource path="res://assets/pixel_theme.tres" type="Theme" id=1]
 [ext_resource path="res://scenes/menu/menu.gd" type="Script" id=5]
 
-[sub_resource type="DynamicFont" id=5]
-size = 60
-font_data = ExtResource( 4 )
+[sub_resource type="StyleBoxEmpty" id=4]
 
-[sub_resource type="GDScript" id=1]
-script/source = "extends Label
+[sub_resource type="StyleBoxEmpty" id=5]
 
+[sub_resource type="StyleBoxEmpty" id=6]
 
-"
+[sub_resource type="StyleBoxEmpty" id=7]
+
+[sub_resource type="StyleBoxEmpty" id=2]
+
+[sub_resource type="StyleBoxEmpty" id=8]
+
+[sub_resource type="StyleBoxEmpty" id=9]
+
+[sub_resource type="StyleBoxEmpty" id=10]
+
+[sub_resource type="StyleBoxEmpty" id=11]
+
+[sub_resource type="StyleBoxEmpty" id=3]
 
 [node name="Menu" type="Control"]
 anchor_right = 1.0
@@ -27,123 +36,82 @@ __meta__ = {
 [node name="ColorRect" type="ColorRect" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
-color = Color( 0.176471, 0.682353, 0.647059, 1 )
+color = Color( 0.929412, 0.964706, 0.839216, 1 )
 
-[node name="CenterContainer" type="CenterContainer" parent="."]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_bottom = -339.0
-
-[node name="Title" type="Label" parent="CenterContainer"]
-margin_left = 145.0
-margin_top = 89.0
-margin_right = 878.0
-margin_bottom = 172.0
-custom_fonts/font = SubResource( 5 )
-text = "Godot Game Template"
+[node name="Title" type="Label" parent="."]
+margin_left = 1.0
+margin_top = -5.0
+margin_right = 18.0
+margin_bottom = 8.0
+theme = ExtResource( 1 )
+custom_colors/font_color = Color( 0.243137, 0.137255, 0.172549, 1 )
+text = ".rpg"
 uppercase = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -100.0
-margin_top = -34.0
-margin_right = 100.0
-margin_bottom = 130.0
-custom_constants/separation = 16
-
-[node name="PlayButton" type="Button" parent="VBoxContainer"]
-margin_right = 200.0
-margin_bottom = 70.0
-rect_min_size = Vector2( 200, 70 )
+[node name="PlayButton" type="Button" parent="."]
+margin_left = -5.0
+margin_top = 10.0
+margin_right = 29.0
+margin_bottom = 23.0
 focus_neighbour_bottom = NodePath("../ExitButton")
 focus_next = NodePath("../ExitButton")
+custom_colors/font_color_disabled = Color( 0.243137, 0.137255, 0.172549, 1 )
+custom_colors/font_color_focus = Color( 0.243137, 0.137255, 0.172549, 1 )
+custom_colors/font_color = Color( 0.243137, 0.137255, 0.172549, 1 )
+custom_colors/font_color_hover = Color( 0.243137, 0.137255, 0.172549, 1 )
+custom_colors/font_color_pressed = Color( 0.243137, 0.137255, 0.172549, 1 )
+custom_styles/hover = SubResource( 4 )
+custom_styles/pressed = SubResource( 5 )
+custom_styles/focus = SubResource( 6 )
+custom_styles/disabled = SubResource( 7 )
+custom_styles/normal = SubResource( 2 )
 text = "START"
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
-[node name="ExitButton" type="Button" parent="VBoxContainer"]
-margin_top = 86.0
-margin_right = 200.0
-margin_bottom = 156.0
-rect_min_size = Vector2( 200, 70 )
+[node name="ExitButton" type="Button" parent="."]
+margin_left = -8.0
+margin_top = 24.0
+margin_right = 26.0
+margin_bottom = 37.0
 focus_neighbour_top = NodePath("../PlayButton")
 focus_previous = NodePath("../PlayButton")
+custom_colors/font_color_disabled = Color( 0.243137, 0.137255, 0.172549, 1 )
+custom_colors/font_color_focus = Color( 0.243137, 0.137255, 0.172549, 1 )
+custom_colors/font_color = Color( 0.243137, 0.137255, 0.172549, 1 )
+custom_colors/font_color_hover = Color( 0.243137, 0.137255, 0.172549, 1 )
+custom_colors/font_color_pressed = Color( 0.243137, 0.137255, 0.172549, 1 )
+custom_styles/hover = SubResource( 8 )
+custom_styles/pressed = SubResource( 9 )
+custom_styles/focus = SubResource( 10 )
+custom_styles/disabled = SubResource( 11 )
+custom_styles/normal = SubResource( 3 )
 text = "EXIT"
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
-[node name="Version" type="VBoxContainer" parent="."]
-anchor_top = 1.0
-anchor_bottom = 1.0
-margin_left = 16.0
-margin_top = -90.0
-margin_right = 198.0
-margin_bottom = -18.0
-
-[node name="GameVersion" type="Label" parent="Version"]
-margin_right = 182.0
-margin_bottom = 34.0
+[node name="GameVersion" type="Label" parent="."]
+margin_left = 39.0
+margin_top = 23.0
+margin_right = 64.0
+margin_bottom = 36.0
+custom_colors/font_color = Color( 0.243137, 0.137255, 0.172549, 1 )
 text = "<x.y.z>"
+align = 2
 
-[node name="GodotVersion" type="Label" parent="Version"]
-margin_top = 38.0
-margin_right = 182.0
-margin_bottom = 72.0
-custom_colors/font_color = Color( 0.92549, 0.92549, 0.92549, 1 )
-text = "<GodotVersion>"
-script = SubResource( 1 )
+[node name="game by" type="Label" parent="."]
+margin_left = 27.0
+margin_top = -5.0
+margin_right = 64.0
+margin_bottom = 8.0
+custom_colors/font_color = Color( 0.243137, 0.137255, 0.172549, 1 )
+text = "game by"
+align = 2
 
-[node name="Credits" type="VBoxContainer" parent="."]
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = -147.0
-margin_top = -90.0
-margin_right = -16.0
-margin_bottom = -16.0
-grow_horizontal = 0
-grow_vertical = 0
+[node name="nuzcraft" type="Label" parent="."]
+margin_left = 29.0
+margin_top = 3.0
+margin_right = 64.0
+margin_bottom = 16.0
+custom_colors/font_color = Color( 0.243137, 0.137255, 0.172549, 1 )
+text = "nuzcraft"
+align = 2
 
-[node name="MadeByLabel" type="Label" parent="Credits"]
-margin_right = 243.0
-margin_bottom = 34.0
-custom_colors/font_color = Color( 1, 1, 1, 1 )
-text = "made by:"
-
-[node name="Developer1" type="Label" parent="Credits"]
-margin_top = 38.0
-margin_right = 243.0
-margin_bottom = 72.0
-grow_horizontal = 0
-custom_colors/font_color = Color( 0.92549, 0.92549, 0.92549, 1 )
-text = "Crystal Bit community"
-
-[node name="Developer2" type="Label" parent="Credits"]
-visible = false
-margin_top = 86.0
-margin_right = 157.0
-margin_bottom = 125.0
-grow_horizontal = 0
-custom_colors/font_color = Color( 0.886275, 0.87451, 0.87451, 1 )
-text = "Developer 2"
-
-[node name="Developer3" type="Label" parent="Credits"]
-visible = false
-margin_top = 129.0
-margin_right = 157.0
-margin_bottom = 168.0
-grow_horizontal = 0
-custom_colors/font_color = Color( 0.886275, 0.87451, 0.87451, 1 )
-text = "Developer 3"
-
-[connection signal="pressed" from="VBoxContainer/PlayButton" to="." method="_on_PlayButton_pressed"]
-[connection signal="pressed" from="VBoxContainer/ExitButton" to="." method="_on_ExitButton_pressed"]
+[connection signal="pressed" from="PlayButton" to="." method="_on_PlayButton_pressed"]
+[connection signal="pressed" from="ExitButton" to="." method="_on_ExitButton_pressed"]
