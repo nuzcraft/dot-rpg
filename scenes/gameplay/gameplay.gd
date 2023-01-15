@@ -17,13 +17,16 @@ func pre_start(params):
 	yield(get_tree().create_timer(2), "timeout")
 	print("Done")
 
-
 # `start()` is called when the graphic transition ends.
 func start():
 	print("gameplay.gd: start() called")
-
 
 func _process(delta):
 	elapsed += delta
 	$Sprite.rect_position.x = Game.size.x / 2 + 10 * sin(2 * 0.4 * PI * elapsed)
 	$Sprite.rect_position.y = Game.size.y / 2 + 5 * sin(2 * 0.2 *  PI * elapsed)
+	
+func _physics_process(delta):
+	var input = Vector2.ZERO
+	input.x = Input.get_axis("ui_left", "ui_right")
+	input.y = Input.get_axis("ui_up", "ui_down")
