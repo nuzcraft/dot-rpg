@@ -5,15 +5,16 @@ class_name Actor
 export(String) var ACTOR_NAME = "Actor"
 export(int) var LEVEL = 1
 export(int) var MAX_HP = 10
-export(int) var ATTACK = 5
-export(int) var DEFENSE = 3
-export(int) var MAGIC = 2
+export(int) var ATTACK = 1
+export(int) var DEFENSE = 1
+export(int) var MAGIC = 1
 
-export(int) var ACCELERATION = 5
-export(int) var FRICTION = 10
-export(int) var MAX_SPEED = 30
+export(int) var ACCELERATION = 50
+export(int) var FRICTION = 100
+export(int) var MAX_SPEED = 300
 
 var velocity = Vector2.ZERO
+var HP = MAX_HP
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

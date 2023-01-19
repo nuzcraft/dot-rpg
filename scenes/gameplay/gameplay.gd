@@ -9,7 +9,14 @@ onready var camera_bounds = {
 }
 
 var elapsed = 0
-onready var hero = $Actor
+onready var hero = $Hero
+onready var battleLayer = $BattleLayer/Battle
+
+enum {
+	EXPLORE
+}
+
+var game_state = EXPLORE
 
 # `pre_start()` is called when a scene is loaded.
 # Use this function to receive params from `Game.change_scene(params)`.
@@ -28,6 +35,7 @@ func pre_start(params):
 # `start()` is called when the graphic transition ends.
 func start():
 	print("gameplay.gd: start() called")
+	hero.connect("enemy_contact", self, "_on_Hero_enemy_contact")
 
 func _process(delta):
 	elapsed += delta
@@ -38,8 +46,8 @@ func _physics_process(delta):
 	input.x = Input.get_axis("ui_left", "ui_right")
 	input.y = Input.get_axis("ui_up", "ui_down")
 	
-	hero.apply_acceleration(input, delta)
-	hero.apply_friction(input, delta)
+	match game_state:
+		EXPLORE: explore_state(input, delta)
 	
 func clamp_actor_on_screen(actor):
 	actor.global_position.x = clamp(actor.global_position.x, camera_bounds["left"], camera_bounds["right"])
@@ -49,4 +57,14 @@ func clamp_actor_on_screen(actor):
 	actor.global_position.y = clamp(actor.global_position.y, camera_bounds["top"], camera_bounds["bottom"])
 	if actor.global_position.y <= camera_bounds["top"] or actor.global_position.y >= camera_bounds["bottom"]:
 		actor.velocity.y = 0
+		
+func explore_state(input, delta):
+	hero.apply_acceleration(input, delta)
+	hero.apply_friction(input, delta)
+	
+func _on_Hero_enemy_contact(hero, enemy):
+	battleLayer.show()
+	$BattleLayer/Battle/VBoxContainer/EnemyContainer/Name.text = enemy.ACTOR_NAME
+	$BattleLayer/Battle/VBoxContainer/EnemyContainer/HP.text = str(enemy.HP) + "/" + str(enemy.MAX_HP)
+	
 	

@@ -14,6 +14,26 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://scenes/actor/actor.gd"
 }, {
+"base": "Enemy",
+"class": "Dhupem",
+"language": "GDScript",
+"path": "res://scenes/actor/enemy/dhupem/dhupem.gd"
+}, {
+"base": "Actor",
+"class": "Enemy",
+"language": "GDScript",
+"path": "res://scenes/actor/enemy/enemy.gd"
+}, {
+"base": "Actor",
+"class": "Hero",
+"language": "GDScript",
+"path": "res://scenes/actor/hero/hero.gd"
+}, {
+"base": "Enemy",
+"class": "Nopri",
+"language": "GDScript",
+"path": "res://scenes/actor/enemy/nopri/nopri.gd"
+}, {
 "base": "Reference",
 "class": "SceneData",
 "language": "GDScript",
@@ -31,6 +51,10 @@ _global_script_classes=[ {
 } ]
 _global_script_class_icons={
 "Actor": "",
+"Dhupem": "",
+"Enemy": "",
+"Hero": "",
+"Nopri": "",
 "SceneData": "",
 "Scenes": "",
 "Transition": ""
