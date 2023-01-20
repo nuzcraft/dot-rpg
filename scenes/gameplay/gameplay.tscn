@@ -11,12 +11,12 @@
 script = ExtResource( 5 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2( 32, 18 )
+position = Vector2( 64, 36 )
 current = true
 
 [node name="Background" type="ColorRect" parent="."]
-margin_right = 64.0
-margin_bottom = 36.0
+anchor_right = 1.0
+anchor_bottom = 1.0
 color = Color( 0.929412, 0.964706, 0.839216, 1 )
 
 [node name="PauseLayer" parent="." instance=ExtResource( 2 )]

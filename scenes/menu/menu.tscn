@@ -36,7 +36,7 @@ custom_colors/font_color = Color( 0.243137, 0.137255, 0.172549, 1 )
 text = ".rpg"
 uppercase = true
 
-[node name="Control" type="Control" parent="MainContainer/LeftContainer"]
+[node name="Spacer" type="Control" parent="MainContainer/LeftContainer"]
 margin_top = 22.0
 margin_right = 46.0
 margin_bottom = 27.0
@@ -61,7 +61,7 @@ focus_neighbour_top = NodePath("../PlayButton")
 focus_previous = NodePath("../PlayButton")
 text = "EXIT"
 
-[node name="Control" type="Control" parent="MainContainer"]
+[node name="Spacer" type="Control" parent="MainContainer"]
 margin_left = 50.0
 margin_right = 50.0
 margin_bottom = 71.0
@@ -89,7 +89,7 @@ custom_colors/font_color = Color( 0.243137, 0.137255, 0.172549, 1 )
 text = "nuzcraft"
 align = 2
 
-[node name="Control" type="Control" parent="MainContainer/RightContainer"]
+[node name="Spacer" type="Control" parent="MainContainer/RightContainer"]
 margin_top = 36.0
 margin_right = 74.0
 margin_bottom = 53.0

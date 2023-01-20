@@ -9,9 +9,9 @@ export(int) var ATTACK = 1
 export(int) var DEFENSE = 1
 export(int) var MAGIC = 1
 
-export(int) var ACCELERATION = 50
-export(int) var FRICTION = 100
-export(int) var MAX_SPEED = 300
+export(int) var ACCELERATION = 100
+export(int) var FRICTION = 200
+export(int) var MAX_SPEED = 600
 
 var velocity = Vector2.ZERO
 var HP = MAX_HP
