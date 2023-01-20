@@ -2,11 +2,11 @@ extends Control
 
 
 func _ready():
-	$GameVersion.text = ProjectSettings.get_setting("application/config/version")
+	$MainContainer/RightContainer/GameVersion.text = ProjectSettings.get_setting("application/config/version")
 	# needed for gamepads to work
-	$PlayButton.grab_focus()
+	$MainContainer/LeftContainer/PlayButton.grab_focus()
 	if OS.has_feature('HTML5'):
-		$ExitButton.queue_free()
+		$MainContainer/LeftContainer/ExitButton.queue_free()
 
 
 func _on_PlayButton_pressed() -> void:
