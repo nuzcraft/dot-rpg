@@ -116,4 +116,6 @@ theme = ExtResource( 1 )
 text = "8/10"
 
 [connection signal="pressed" from="Battle/VBoxContainer/ActionContainer/VBoxContainer/Attack" to="." method="_on_Attack_pressed"]
+[connection signal="pressed" from="Battle/VBoxContainer/ActionContainer/VBoxContainer/Defend" to="." method="_on_Defend_pressed"]
 [connection signal="pressed" from="Battle/VBoxContainer/ActionContainer/VBoxContainer2/Magic" to="." method="_on_Magic_pressed"]
+[connection signal="pressed" from="Battle/VBoxContainer/ActionContainer/VBoxContainer2/Run" to="." method="_on_Run_pressed"]

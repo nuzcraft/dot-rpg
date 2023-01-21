@@ -46,21 +46,23 @@ func set_hero_hp():
 	heroHPLabel.text = str(hero.HP) + "/" + str(hero.MAX_HP)
 
 func _on_Attack_pressed():
-	var attack_amount = hero.ATTACK
-	var defense_amount = floor(enemy.DEFENSE / 2)
-	var amount = attack_amount - defense_amount
+	var amount = enemy.calc_damage(hero.ATTACK)
 	if amount < 0:
 		amount = 0
 	print(hero.ACTOR_NAME, " attacks ", enemy.ACTOR_NAME, " for ", amount, " damage.")
 	enemy.take_damage(amount)
 
 func _on_Magic_pressed():
-	var attack_amount = hero.MAGIC
-	var defense_amount = floor(enemy.MAGIC / 2)
-	var amount = attack_amount - defense_amount
+	var amount = enemy.calc_magic_damage(hero.MAGIC)
 	if amount < 0:
 		amount = 0
-	print(hero.ACTOR_NAME, " attacks ", enemy.ACTOR_NAME, " for ", amount, " damage.")
+	print(hero.ACTOR_NAME, " casts magic at ", enemy.ACTOR_NAME, " for ", amount, " damage.")
 	enemy.take_damage(amount)
 	
+func _on_Defend_pressed():
+	print(hero.ACTOR_NAME, " steels themself for a strike.")
+	hero.defend()
 
+func _on_Run_pressed():
+	print(hero.ACTOR_NAME, " flees!")
+	battle.hide()

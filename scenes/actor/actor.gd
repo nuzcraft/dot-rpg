@@ -15,6 +15,7 @@ export(int) var MAX_SPEED = 600
 
 var velocity = Vector2.ZERO
 var HP = MAX_HP
+var defend_amount = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -53,3 +54,12 @@ func take_damage(amount):
 		
 func die():
 	print(ACTOR_NAME, " died.")
+	
+func calc_damage(incoming_damage):
+	return incoming_damage - floor(DEFENSE / 2)
+	
+func calc_magic_damage(incoming_magic):
+	return incoming_magic - floor(MAGIC / 2)
+	
+func defend():
+	defend_amount = DEFENSE
