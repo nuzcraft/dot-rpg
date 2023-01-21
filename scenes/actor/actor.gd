@@ -42,3 +42,14 @@ func apply_acceleration(input, delta):
 		velocity.x = MAX_SPEED
 	if velocity.y > MAX_SPEED:
 		velocity.y = MAX_SPEED
+		
+func take_damage(amount):
+	HP -= amount
+	print(ACTOR_NAME, " takes ", str(amount), " damage.")
+	if HP < 0:
+		HP = 0
+	if HP == 0:
+		die()
+		
+func die():
+	print(ACTOR_NAME, " died.")
