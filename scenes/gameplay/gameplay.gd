@@ -10,7 +10,7 @@ onready var camera_bounds = {
 
 var elapsed = 0
 onready var hero = $Hero
-onready var battleLayer = $BattleLayer/Battle
+onready var battleLayer = $BattleLayer
 
 enum {
 	EXPLORE
@@ -62,9 +62,6 @@ func explore_state(input, delta):
 	hero.apply_acceleration(input, delta)
 	hero.apply_friction(input, delta)
 	
-func _on_Hero_enemy_contact(hero, enemy):
-	battleLayer.show()
-	$BattleLayer/Battle/VBoxContainer/EnemyContainer/Name.text = enemy.ACTOR_NAME
-	$BattleLayer/Battle/VBoxContainer/EnemyContainer/HP.text = str(enemy.HP) + "/" + str(enemy.MAX_HP)
-	
+func _on_Hero_enemy_contact(hero_param, enemy):
+	battleLayer.start_battle(hero_param, enemy)
 	

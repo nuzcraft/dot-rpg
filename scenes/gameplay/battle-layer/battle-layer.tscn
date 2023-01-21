@@ -1,47 +1,8 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://assets/pixel_theme.tres" type="Theme" id=1]
 [ext_resource path="res://scenes/gameplay/battle-layer/battle-layer.gd" type="Script" id=2]
-
-[sub_resource type="StyleBoxEmpty" id=1]
-
-[sub_resource type="StyleBoxEmpty" id=2]
-
-[sub_resource type="StyleBoxEmpty" id=3]
-
-[sub_resource type="StyleBoxEmpty" id=4]
-
-[sub_resource type="StyleBoxEmpty" id=21]
-
-[sub_resource type="StyleBoxEmpty" id=6]
-
-[sub_resource type="StyleBoxEmpty" id=7]
-
-[sub_resource type="StyleBoxEmpty" id=8]
-
-[sub_resource type="StyleBoxEmpty" id=9]
-
-[sub_resource type="StyleBoxEmpty" id=10]
-
-[sub_resource type="StyleBoxEmpty" id=11]
-
-[sub_resource type="StyleBoxEmpty" id=12]
-
-[sub_resource type="StyleBoxEmpty" id=13]
-
-[sub_resource type="StyleBoxEmpty" id=14]
-
-[sub_resource type="StyleBoxEmpty" id=15]
-
-[sub_resource type="StyleBoxEmpty" id=16]
-
-[sub_resource type="StyleBoxEmpty" id=17]
-
-[sub_resource type="StyleBoxEmpty" id=18]
-
-[sub_resource type="StyleBoxEmpty" id=19]
-
-[sub_resource type="StyleBoxEmpty" id=20]
+[ext_resource path="res://assets/pixel_theme_reverse.tres" type="Theme" id=3]
 
 [node name="BattleLayer" type="CanvasLayer"]
 script = ExtResource( 2 )
@@ -50,6 +11,7 @@ script = ExtResource( 2 )
 visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
+theme = ExtResource( 3 )
 
 [node name="Background" type="ColorRect" parent="Battle"]
 anchor_right = 1.0
@@ -59,122 +21,101 @@ color = Color( 0.243137, 0.137255, 0.172549, 1 )
 [node name="VBoxContainer" type="VBoxContainer" parent="Battle"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-custom_constants/separation = -3
+custom_constants/separation = 1
 
 [node name="EnemyContainer" type="HBoxContainer" parent="Battle/VBoxContainer"]
-margin_right = 64.0
-margin_bottom = 13.0
+margin_right = 128.0
+margin_bottom = 18.0
 alignment = 1
 
 [node name="Name" type="Label" parent="Battle/VBoxContainer/EnemyContainer"]
-margin_left = 9.0
-margin_right = 30.0
-margin_bottom = 13.0
-theme = ExtResource( 1 )
-custom_colors/font_color = Color( 0.929412, 0.964706, 0.839216, 1 )
+margin_left = 21.0
+margin_right = 63.0
+margin_bottom = 18.0
 text = "Nopri"
 
 [node name="HP" type="Label" parent="Battle/VBoxContainer/EnemyContainer"]
-margin_left = 34.0
-margin_right = 54.0
-margin_bottom = 13.0
-theme = ExtResource( 1 )
-custom_colors/font_color = Color( 0.929412, 0.964706, 0.839216, 1 )
+margin_left = 67.0
+margin_right = 107.0
+margin_bottom = 18.0
 text = "5/10"
 
+[node name="ActionContainer" type="HBoxContainer" parent="Battle/VBoxContainer"]
+margin_top = 19.0
+margin_right = 128.0
+margin_bottom = 57.0
+alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Battle/VBoxContainer/ActionContainer"]
+margin_left = 30.0
+margin_right = 60.0
+margin_bottom = 38.0
+custom_constants/separation = 2
+
+[node name="Attack" type="Button" parent="Battle/VBoxContainer/ActionContainer/VBoxContainer"]
+margin_right = 30.0
+margin_bottom = 18.0
+focus_neighbour_right = NodePath("../../VBoxContainer2/Magic")
+focus_neighbour_bottom = NodePath("../Defend")
+focus_next = NodePath("../../VBoxContainer2/Magic")
+focus_previous = NodePath("../../VBoxContainer2/Run")
+text = "ATK"
+
+[node name="Defend" type="Button" parent="Battle/VBoxContainer/ActionContainer/VBoxContainer"]
+margin_top = 20.0
+margin_right = 30.0
+margin_bottom = 38.0
+focus_neighbour_top = NodePath("../Attack")
+focus_neighbour_right = NodePath("../../VBoxContainer2/Run")
+focus_next = NodePath("../../VBoxContainer2/Run")
+focus_previous = NodePath("../../VBoxContainer2/Magic")
+text = "DEF"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="Battle/VBoxContainer/ActionContainer"]
+margin_left = 64.0
+margin_right = 98.0
+margin_bottom = 38.0
+custom_constants/separation = 2
+
+[node name="Magic" type="Button" parent="Battle/VBoxContainer/ActionContainer/VBoxContainer2"]
+margin_right = 34.0
+margin_bottom = 18.0
+focus_neighbour_left = NodePath("../../VBoxContainer/Attack")
+focus_neighbour_bottom = NodePath("../Run")
+focus_next = NodePath("../../VBoxContainer/Defend")
+focus_previous = NodePath("../../VBoxContainer/Attack")
+text = "MAG"
+
+[node name="Run" type="Button" parent="Battle/VBoxContainer/ActionContainer/VBoxContainer2"]
+margin_top = 20.0
+margin_right = 34.0
+margin_bottom = 38.0
+focus_neighbour_left = NodePath("../../VBoxContainer/Defend")
+focus_neighbour_top = NodePath("../Magic")
+focus_next = NodePath("../../VBoxContainer/Attack")
+focus_previous = NodePath("../../VBoxContainer/Defend")
+text = "RUN"
+
 [node name="HeroContainer" type="HBoxContainer" parent="Battle/VBoxContainer"]
-margin_top = 10.0
-margin_right = 64.0
-margin_bottom = 23.0
+margin_top = 58.0
+margin_right = 128.0
+margin_bottom = 76.0
 alignment = 1
 
 [node name="Name" type="Label" parent="Battle/VBoxContainer/HeroContainer"]
-margin_left = 10.0
-margin_right = 29.0
-margin_bottom = 13.0
-theme = ExtResource( 1 )
-custom_colors/font_color = Color( 0.929412, 0.964706, 0.839216, 1 )
+margin_left = 22.0
+margin_right = 60.0
+margin_bottom = 18.0
 text = "Hero"
 
 [node name="HP" type="Label" parent="Battle/VBoxContainer/HeroContainer"]
-margin_left = 33.0
-margin_right = 54.0
-margin_bottom = 13.0
+margin_left = 64.0
+margin_right = 106.0
+margin_bottom = 18.0
 theme = ExtResource( 1 )
-custom_colors/font_color = Color( 0.929412, 0.964706, 0.839216, 1 )
 text = "8/10"
 
-[node name="ActionContainer" type="HBoxContainer" parent="Battle/VBoxContainer"]
-margin_top = 20.0
-margin_right = 64.0
-margin_bottom = 33.0
-custom_constants/separation = 1
-alignment = 1
-
-[node name="Attack" type="Button" parent="Battle/VBoxContainer/ActionContainer"]
-margin_left = 1.0
-margin_right = 15.0
-margin_bottom = 13.0
-theme = ExtResource( 1 )
-custom_colors/font_color_disabled = Color( 0.929412, 0.964706, 0.839216, 1 )
-custom_colors/font_color_focus = Color( 0.929412, 0.964706, 0.839216, 1 )
-custom_colors/font_color = Color( 0.929412, 0.964706, 0.839216, 0.313726 )
-custom_colors/font_color_hover = Color( 0.929412, 0.964706, 0.839216, 1 )
-custom_colors/font_color_pressed = Color( 0.929412, 0.964706, 0.839216, 0.588235 )
-custom_styles/hover = SubResource( 1 )
-custom_styles/pressed = SubResource( 2 )
-custom_styles/focus = SubResource( 3 )
-custom_styles/disabled = SubResource( 4 )
-custom_styles/normal = SubResource( 21 )
-text = "ATK"
-
-[node name="Defend" type="Button" parent="Battle/VBoxContainer/ActionContainer"]
-margin_left = 16.0
-margin_right = 29.0
-margin_bottom = 13.0
-theme = ExtResource( 1 )
-custom_colors/font_color_disabled = Color( 0.929412, 0.964706, 0.839216, 1 )
-custom_colors/font_color_focus = Color( 0.929412, 0.964706, 0.839216, 1 )
-custom_colors/font_color = Color( 0.929412, 0.964706, 0.839216, 0.313726 )
-custom_colors/font_color_hover = Color( 0.929412, 0.964706, 0.839216, 1 )
-custom_colors/font_color_pressed = Color( 0.929412, 0.964706, 0.839216, 0.588235 )
-custom_styles/hover = SubResource( 6 )
-custom_styles/pressed = SubResource( 7 )
-custom_styles/focus = SubResource( 8 )
-custom_styles/disabled = SubResource( 9 )
-custom_styles/normal = SubResource( 10 )
-text = "DEF"
-
-[node name="Magic" type="Button" parent="Battle/VBoxContainer/ActionContainer"]
-margin_left = 30.0
-margin_right = 46.0
-margin_bottom = 13.0
-theme = ExtResource( 1 )
-custom_colors/font_color_disabled = Color( 0.929412, 0.964706, 0.839216, 1 )
-custom_colors/font_color_focus = Color( 0.929412, 0.964706, 0.839216, 1 )
-custom_colors/font_color = Color( 0.929412, 0.964706, 0.839216, 0.313726 )
-custom_colors/font_color_hover = Color( 0.929412, 0.964706, 0.839216, 1 )
-custom_colors/font_color_pressed = Color( 0.929412, 0.964706, 0.839216, 0.588235 )
-custom_styles/hover = SubResource( 11 )
-custom_styles/pressed = SubResource( 12 )
-custom_styles/focus = SubResource( 13 )
-custom_styles/disabled = SubResource( 14 )
-custom_styles/normal = SubResource( 15 )
-text = "MAG"
-
-[node name="Run" type="Button" parent="Battle/VBoxContainer/ActionContainer"]
-margin_left = 47.0
-margin_right = 62.0
-margin_bottom = 13.0
-theme = ExtResource( 1 )
-custom_colors/font_color_disabled = Color( 0.929412, 0.964706, 0.839216, 1 )
-custom_colors/font_color_focus = Color( 0.929412, 0.964706, 0.839216, 1 )
-custom_colors/font_color = Color( 0.929412, 0.964706, 0.839216, 0.313726 )
-custom_colors/font_color_hover = Color( 0.929412, 0.964706, 0.839216, 1 )
-custom_colors/font_color_pressed = Color( 0.929412, 0.964706, 0.839216, 0.588235 )
-custom_styles/hover = SubResource( 16 )
-custom_styles/pressed = SubResource( 17 )
-custom_styles/focus = SubResource( 18 )
-custom_styles/disabled = SubResource( 19 )
-custom_styles/normal = SubResource( 20 )
-text = "RUN"
+[connection signal="pressed" from="Battle/VBoxContainer/ActionContainer/VBoxContainer/Attack" to="." method="_on_Attack_pressed"]
+[connection signal="pressed" from="Battle/VBoxContainer/ActionContainer/VBoxContainer/Defend" to="." method="_on_Defend_pressed"]
+[connection signal="pressed" from="Battle/VBoxContainer/ActionContainer/VBoxContainer2/Magic" to="." method="_on_Magic_pressed"]
+[connection signal="pressed" from="Battle/VBoxContainer/ActionContainer/VBoxContainer2/Run" to="." method="_on_Run_pressed"]

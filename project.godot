@@ -81,8 +81,8 @@ property_name=1
 
 [display]
 
-window/size/width=64
-window/size/height=36
+window/size/width=128
+window/size/height=72
 window/size/test_width=640
 window/size/test_height=360
 window/dpi/allow_hidpi=true
@@ -105,3 +105,4 @@ pause={
 [rendering]
 
 quality/driver/driver_name="GLES2"
+vram_compression/import_etc=true
