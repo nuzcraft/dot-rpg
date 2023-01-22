@@ -21,3 +21,7 @@ Idk if it's important to collect my thoughts, but here they are for now
 * I need to make more enemies
 * I need to make the enemies spawn in and spawn out
 * I need to be able to win, lose, and restart
+
+### 2023.01.22
+* changed the link buttons on pause menu to regular buttons
+* added enemy turns after hero takes turn
