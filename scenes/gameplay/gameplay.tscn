@@ -28,9 +28,12 @@ color = Color( 0.929412, 0.964706, 0.839216, 1 )
 
 [node name="Hero" parent="." instance=ExtResource( 1 )]
 position = Vector2( 22, 16 )
+MAGIC = 2
 
 [node name="Nopri" parent="." instance=ExtResource( 3 )]
 position = Vector2( 51, 8 )
+MAGIC = 3
 
 [node name="Dhupem" parent="." instance=ExtResource( 4 )]
 position = Vector2( 48, 27 )
+ATTACK = 3

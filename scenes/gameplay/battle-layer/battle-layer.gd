@@ -47,22 +47,34 @@ func set_hero_hp():
 
 func _on_Attack_pressed():
 	var amount = enemy.calc_damage(hero.ATTACK)
-	if amount < 0:
-		amount = 0
 	print(hero.ACTOR_NAME, " attacks ", enemy.ACTOR_NAME, " for ", amount, " damage.")
 	enemy.take_damage(amount)
+	enemy_turn()
 
 func _on_Magic_pressed():
 	var amount = enemy.calc_magic_damage(hero.MAGIC)
-	if amount < 0:
-		amount = 0
 	print(hero.ACTOR_NAME, " casts magic at ", enemy.ACTOR_NAME, " for ", amount, " damage.")
 	enemy.take_damage(amount)
+	enemy_turn()
 	
 func _on_Defend_pressed():
 	print(hero.ACTOR_NAME, " steels themself for a strike.")
 	hero.defend()
+	enemy_turn()
 
 func _on_Run_pressed():
 	print(hero.ACTOR_NAME, " flees!")
 	battle.hide()
+	
+func enemy_turn():
+	var turn = enemy.choose_turn()
+	var amount = 0
+	match turn:
+		"attack":
+			amount = hero.calc_damage(enemy.ATTACK)
+			print(enemy.ACTOR_NAME, " attacks ", hero.ACTOR_NAME, " for ", amount, " damage.")
+		"magic":
+			amount = hero.calc_magic_damage(enemy.MAGIC)
+			print(enemy.ACTOR_NAME, " casts magic at ", hero.ACTOR_NAME, " for ", amount, " damage.")
+	hero.take_damage(amount)
+	
