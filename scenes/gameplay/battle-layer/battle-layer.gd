@@ -15,8 +15,10 @@ func _ready():
 	pass
 	
 func _process(delta):
-	if enemy:
+	if is_instance_valid(enemy):
 		set_enemy_hp()
+	else:
+		battle.hide()
 	if hero:
 		set_hero_hp()
 	
@@ -49,6 +51,7 @@ func _on_Attack_pressed():
 	var amount = enemy.calc_damage(hero.ATTACK)
 	print(hero.ACTOR_NAME, " attacks ", enemy.ACTOR_NAME, " for ", amount, " damage.")
 	enemy.take_damage(amount)
+	
 	enemy_turn()
 
 func _on_Magic_pressed():

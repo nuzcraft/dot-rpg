@@ -25,3 +25,4 @@ Idk if it's important to collect my thoughts, but here they are for now
 ### 2023.01.22
 * changed the link buttons on pause menu to regular buttons
 * added enemy turns after hero takes turn
+* added a gameover / restart screen
