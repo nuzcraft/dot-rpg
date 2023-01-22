@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=7 format=2]
+[gd_resource type="Theme" load_steps=8 format=2]
 
 [ext_resource path="res://assets/fonts/Bitty.ttf" type="DynamicFontData" id=1]
 
@@ -47,6 +47,8 @@ corner_radius_bottom_left = 1
 corner_detail = 1
 anti_aliasing = false
 
+[sub_resource type="StyleBoxEmpty" id=6]
+
 [resource]
 default_font = SubResource( 1 )
 Button/colors/font_color = Color( 0.929412, 0.964706, 0.839216, 1 )
@@ -60,3 +62,8 @@ Button/styles/hover = SubResource( 2 )
 Button/styles/normal = SubResource( 3 )
 Button/styles/pressed = SubResource( 5 )
 Label/colors/font_color = Color( 0.929412, 0.964706, 0.839216, 1 )
+LinkButton/colors/font_color = Color( 0.929412, 0.964706, 0.839216, 1 )
+LinkButton/colors/font_color_focus = Color( 0.929412, 0.964706, 0.839216, 1 )
+LinkButton/colors/font_color_hover = Color( 0.929412, 0.964706, 0.839216, 1 )
+LinkButton/colors/font_color_pressed = Color( 0.929412, 0.964706, 0.839216, 1 )
+LinkButton/styles/focus = SubResource( 6 )

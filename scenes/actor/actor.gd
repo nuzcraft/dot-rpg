@@ -63,3 +63,23 @@ func calc_magic_damage(incoming_magic):
 	
 func defend():
 	defend_amount = DEFENSE
+	
+func attack_up():
+	ATTACK += 1
+	LEVEL += 1
+	MAX_HP += 2
+	HP = MAX_HP
+	
+func defense_up():
+	DEFENSE += 1
+	LEVEL += 1
+	MAX_HP += 2
+	HP = MAX_HP
+	
+func magic_up():
+	MAGIC += 1
+	LEVEL += 1
+	MAX_HP += 2
+	HP = MAX_HP
+	
+	

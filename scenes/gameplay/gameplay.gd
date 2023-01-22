@@ -11,6 +11,7 @@ onready var camera_bounds = {
 var elapsed = 0
 onready var hero = $Hero
 onready var battleLayer = $BattleLayer
+onready var statsLayer = $StatsLayer
 
 enum {
 	EXPLORE
@@ -35,6 +36,7 @@ func pre_start(params):
 # `start()` is called when the graphic transition ends.
 func start():
 	print("gameplay.gd: start() called")
+	statsLayer.set_hero(hero)
 	hero.connect("enemy_contact", self, "_on_Hero_enemy_contact")
 
 func _process(delta):

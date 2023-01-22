@@ -2,7 +2,7 @@ extends CanvasLayer
 
 onready var pause := $Pause
 onready var pause_button := $PauseButton
-onready var resume_option := $Pause/Resume
+onready var resume_option := $Pause/VBoxContainer/HBoxContainer/Resume
 
 
 func _ready():
