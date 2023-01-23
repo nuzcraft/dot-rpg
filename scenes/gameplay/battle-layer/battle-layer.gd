@@ -1,5 +1,7 @@
 extends CanvasLayer
 
+signal battle_exited
+
 onready var battle = $Battle
 onready var enemyNameLabel = $Battle/VBoxContainer/EnemyContainer/Name
 onready var enemyHPLabel = $Battle/VBoxContainer/EnemyContainer/HP
@@ -19,6 +21,7 @@ func _process(delta):
 		set_enemy_hp()
 	else:
 		battle.hide()
+		emit_signal("battle_exited")
 	if hero:
 		set_hero_hp()
 	
@@ -68,6 +71,7 @@ func _on_Defend_pressed():
 func _on_Run_pressed():
 	print(hero.ACTOR_NAME, " flees!")
 	battle.hide()
+	emit_signal("battle_exited")
 	
 func enemy_turn():
 	var turn = enemy.choose_turn()

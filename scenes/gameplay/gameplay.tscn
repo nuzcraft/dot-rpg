@@ -30,6 +30,10 @@ color = Color( 0.929412, 0.964706, 0.839216, 1 )
 position = Vector2( 22, 16 )
 MAGIC = 2
 
+[node name="EnemySpawner" type="Timer" parent="."]
+wait_time = 10.0
+autostart = true
+
 [node name="Nopri" parent="." instance=ExtResource( 3 )]
 position = Vector2( 51, 8 )
 MAGIC = 3
@@ -37,3 +41,6 @@ MAGIC = 3
 [node name="Dhupem" parent="." instance=ExtResource( 4 )]
 position = Vector2( 48, 27 )
 ATTACK = 3
+
+[connection signal="battle_exited" from="BattleLayer" to="." method="_on_BattleLayer_battle_exited"]
+[connection signal="timeout" from="EnemySpawner" to="." method="_on_EnemySpawner_timeout"]
