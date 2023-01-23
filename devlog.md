@@ -30,7 +30,9 @@ Idk if it's important to collect my thoughts, but here they are for now
 ### 2023.01.23
 -[ ] itch.io page
 -[ ] update github actions to deploy to itch
--[ ] create enemy spawner
+-[x] create enemy spawner
+    -[ ] add limit to enemy spawner
+    -[ ] make enemies despawn after a bit
 -[ ] create more types of enemies
 -[ ] create win condition
 -[ ] first balance pass to make the game winnable
