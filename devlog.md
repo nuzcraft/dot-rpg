@@ -26,3 +26,15 @@ Idk if it's important to collect my thoughts, but here they are for now
 * changed the link buttons on pause menu to regular buttons
 * added enemy turns after hero takes turn
 * added a gameover / restart screen
+
+### 2023.01.23
+-[ ] itch.io page
+-[ ] update github actions to deploy to itch
+-[ ] create enemy spawner
+-[ ] create more types of enemies
+-[ ] create win condition
+-[ ] first balance pass to make the game winnable
+-[ ] update spawner to progressively spawn harder enemies
+-[ ] customize enemy attacks
+-[ ] customize enemy pathing on map
+-[ ] add signifier to battle screen to show what the enemy does
