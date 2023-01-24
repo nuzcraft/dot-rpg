@@ -49,6 +49,9 @@ func start():
 	rng.randomize()
 	statsLayer.set_hero(hero)
 	hero.connect("enemy_contact", self, "_on_Hero_enemy_contact")
+	
+	$Nopri.connect("despawn_timer_timeout", self, "_on_Enemy_despawn_timer_timeout")
+	$Dhupem.connect("despawn_timer_timeout", self, "_on_Enemy_despawn_timer_timeout")
 
 func _process(delta):
 	elapsed += delta
@@ -95,7 +98,13 @@ func spawn_enemy(scene):
 	var obj = scene.instance()
 	obj.position = Vector2(x, y)
 	add_child(obj)
+	obj.connect("despawn_timer_timeout", self, "_on_Enemy_despawn_timer_timeout")
 	print(obj.ACTOR_NAME, " spawned in.")
 
 func _on_BattleLayer_battle_exited():
 	$EnemySpawner.paused = false
+	
+func _on_Enemy_despawn_timer_timeout(enemy):
+	enemy.queue_free()
+	print(enemy.ACTOR_NAME, " left the area.")
+

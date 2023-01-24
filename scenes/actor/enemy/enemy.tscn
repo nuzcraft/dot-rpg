@@ -6,3 +6,9 @@
 [node name="Enemy" groups=["enemy"] instance=ExtResource( 1 )]
 script = ExtResource( 2 )
 ACTOR_NAME = "Enemy"
+
+[node name="Despawn" type="Timer" parent="." index="3"]
+wait_time = 60.0
+autostart = true
+
+[connection signal="timeout" from="Despawn" to="." method="_on_Despawn_timeout"]
