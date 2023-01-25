@@ -9,3 +9,9 @@ func die():
 
 func _on_Despawn_timeout():
 	emit_signal("despawn_timer_timeout", self)
+
+func pause_timer():
+	$Despawn.paused = true
+	
+func unpause_timer():
+	$Despawn.paused = false

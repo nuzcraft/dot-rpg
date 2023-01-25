@@ -31,8 +31,8 @@ Idk if it's important to collect my thoughts, but here they are for now
 -[ ] itch.io page
 -[ ] update github actions to deploy to itch
 -[x] create enemy spawner
-    -[ ] add limit to enemy spawner
-    -[ ] make enemies despawn after a bit
+    -[x] add limit to enemy spawner
+    -[x] make enemies despawn after a bit
 -[ ] create more types of enemies
 -[ ] create win condition
 -[ ] first balance pass to make the game winnable

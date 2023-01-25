@@ -50,8 +50,8 @@ func start():
 	statsLayer.set_hero(hero)
 	hero.connect("enemy_contact", self, "_on_Hero_enemy_contact")
 	
-	$Nopri.connect("despawn_timer_timeout", self, "_on_Enemy_despawn_timer_timeout")
-	$Dhupem.connect("despawn_timer_timeout", self, "_on_Enemy_despawn_timer_timeout")
+	spawn_random_enemy()
+	spawn_random_enemy()
 
 func _process(delta):
 	elapsed += delta
@@ -81,10 +81,16 @@ func explore_state(input, delta):
 func _on_Hero_enemy_contact(hero_param, enemy):
 	battleLayer.start_battle(hero_param, enemy)
 	$EnemySpawner.paused = true
+	for enemy in get_tree().get_nodes_in_group("enemy"):
+		enemy.pause_timer()
 	
 func _on_EnemySpawner_timeout():
+	var num_enemies = get_tree().get_nodes_in_group("enemy").size()
+	if num_enemies <= 5:
+		spawn_random_enemy()
+
+func spawn_random_enemy():
 	var num = rng.randf()
-	print(num)
 	var summed_chance = 0.0
 	for enemy_scene in enemy_spawn_chances:
 		summed_chance += enemy_spawn_chances[enemy_scene]
@@ -103,6 +109,8 @@ func spawn_enemy(scene):
 
 func _on_BattleLayer_battle_exited():
 	$EnemySpawner.paused = false
+	for enemy in get_tree().get_nodes_in_group("enemy"):
+		enemy.unpause_timer()
 	
 func _on_Enemy_despawn_timer_timeout(enemy):
 	enemy.queue_free()
