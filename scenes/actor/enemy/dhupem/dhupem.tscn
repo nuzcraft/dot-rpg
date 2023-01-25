@@ -6,3 +6,5 @@
 [node name="Dhupem" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
 ACTOR_NAME = "Dhupem"
+LEVEL = 2
+MAX_HP = 5

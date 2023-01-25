@@ -15,6 +15,11 @@ _global_script_classes=[ {
 "path": "res://scenes/actor/actor.gd"
 }, {
 "base": "Enemy",
+"class": "Azlosa",
+"language": "GDScript",
+"path": "res://scenes/actor/enemy/azlosa/azlosa.gd"
+}, {
+"base": "Enemy",
 "class": "Dhupem",
 "language": "GDScript",
 "path": "res://scenes/actor/enemy/dhupem/dhupem.gd"
@@ -30,9 +35,19 @@ _global_script_classes=[ {
 "path": "res://scenes/actor/hero/hero.gd"
 }, {
 "base": "Enemy",
+"class": "Kampan",
+"language": "GDScript",
+"path": "res://scenes/actor/enemy/kampan/kampan.gd"
+}, {
+"base": "Enemy",
 "class": "Nopri",
 "language": "GDScript",
 "path": "res://scenes/actor/enemy/nopri/nopri.gd"
+}, {
+"base": "Enemy",
+"class": "Osena",
+"language": "GDScript",
+"path": "res://scenes/actor/enemy/osena/osena.gd"
 }, {
 "base": "Reference",
 "class": "SceneData",
@@ -48,16 +63,31 @@ _global_script_classes=[ {
 "class": "Transition",
 "language": "GDScript",
 "path": "res://addons/game-template/transition/transition.gd"
+}, {
+"base": "Enemy",
+"class": "Uhorn",
+"language": "GDScript",
+"path": "res://scenes/actor/enemy/uhorn/uhorn.gd"
+}, {
+"base": "Enemy",
+"class": "Vargo",
+"language": "GDScript",
+"path": "res://scenes/actor/enemy/vargo/vargo.gd"
 } ]
 _global_script_class_icons={
 "Actor": "",
+"Azlosa": "",
 "Dhupem": "",
 "Enemy": "",
 "Hero": "",
+"Kampan": "",
 "Nopri": "",
+"Osena": "",
 "SceneData": "",
 "Scenes": "",
-"Transition": ""
+"Transition": "",
+"Uhorn": "",
+"Vargo": ""
 }
 
 [application]

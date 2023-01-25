@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://scenes/actor/enemy/enemy.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/actor/enemy/osena/osena.gd" type="Script" id=2]
+
+[node name="Osena" instance=ExtResource( 1 )]
+script = ExtResource( 2 )
+ACTOR_NAME = "Osena"
+LEVEL = 4
+MAX_HP = 7
+MAGIC = 3

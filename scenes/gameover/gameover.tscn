@@ -34,12 +34,16 @@ align = 1
 margin_top = 27.0
 margin_right = 108.0
 margin_bottom = 45.0
+focus_neighbour_top = NodePath("../MainMenu")
+focus_neighbour_bottom = NodePath("../MainMenu")
 text = "Again!"
 
 [node name="MainMenu" type="Button" parent="VBoxContainer"]
 margin_top = 46.0
 margin_right = 108.0
 margin_bottom = 64.0
+focus_neighbour_top = NodePath("../Again!")
+focus_neighbour_bottom = NodePath("../Again!")
 text = "Main Menu"
 
 [connection signal="pressed" from="VBoxContainer/Again!" to="." method="_on_Again_pressed"]

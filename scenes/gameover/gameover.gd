@@ -1,5 +1,8 @@
 extends Control
 
+func _ready():
+	$"VBoxContainer/Again!".grab_focus()
+
 func _on_Again_pressed():
 	var params = {
 		show_progress_bar = true
