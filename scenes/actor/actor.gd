@@ -47,6 +47,7 @@ func apply_acceleration(input, delta):
 func take_damage(amount):
 	HP -= amount
 	print(ACTOR_NAME, " takes ", str(amount), " damage.")
+	defend_amount = 0
 	if HP < 0:
 		HP = 0
 	if HP == 0:
@@ -56,10 +57,16 @@ func die():
 	print(ACTOR_NAME, " died.")
 	
 func calc_damage(incoming_damage):
-	return incoming_damage - floor(DEFENSE / 2)
+	var amount = incoming_damage - floor((DEFENSE + defend_amount) / 2)
+	if amount < 0:
+		amount = 0
+	return amount
 	
 func calc_magic_damage(incoming_magic):
-	return incoming_magic - floor(MAGIC / 2)
+	var amount = incoming_magic - floor(MAGIC / 2)
+	if amount < 0:
+		amount = 0
+	return amount
 	
 func defend():
 	defend_amount = DEFENSE
@@ -82,4 +89,8 @@ func magic_up():
 	MAX_HP += 2
 	HP = MAX_HP
 	
+func choose_turn():
+	if MAGIC > ATTACK:
+		return "magic"
+	return "attack"
 	

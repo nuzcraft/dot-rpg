@@ -21,3 +21,22 @@ Idk if it's important to collect my thoughts, but here they are for now
 * I need to make more enemies
 * I need to make the enemies spawn in and spawn out
 * I need to be able to win, lose, and restart
+
+### 2023.01.22
+* changed the link buttons on pause menu to regular buttons
+* added enemy turns after hero takes turn
+* added a gameover / restart screen
+
+### 2023.01.23
+-[ ] itch.io page
+-[ ] update github actions to deploy to itch
+-[x] create enemy spawner
+    -[x] add limit to enemy spawner
+    -[x] make enemies despawn after a bit
+-[ ] create more types of enemies
+-[ ] create win condition
+-[ ] first balance pass to make the game winnable
+-[ ] update spawner to progressively spawn harder enemies
+-[ ] customize enemy attacks
+-[ ] customize enemy pathing on map
+-[ ] add signifier to battle screen to show what the enemy does
