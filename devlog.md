@@ -27,12 +27,13 @@ Idk if it's important to collect my thoughts, but here they are for now
 * added enemy turns after hero takes turn
 * added a gameover / restart screen
 
-### 2023.01.23
--[ ] itch.io page
--[ ] update github actions to deploy to itch
+### 2023.01.23 and 24
+-[x] itch.io page
+-[x] update github actions to deploy to itch
 -[x] create enemy spawner
     -[x] add limit to enemy spawner
     -[x] make enemies despawn after a bit
+-[ ] focus on died screen buttons
 -[ ] create more types of enemies
 -[ ] create win condition
 -[ ] first balance pass to make the game winnable
