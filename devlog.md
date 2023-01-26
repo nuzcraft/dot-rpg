@@ -27,7 +27,7 @@ Idk if it's important to collect my thoughts, but here they are for now
 * added enemy turns after hero takes turn
 * added a gameover / restart screen
 
-### 2023.01.23 and 24 and 25
+### 2023.01.23 and 24 and 25 and 26
 -[x] itch.io page
 -[x] update github actions to deploy to itch
 -[x] create enemy spawner
