@@ -1,5 +1,7 @@
 extends CanvasLayer
 
+signal leveled_up
+
 onready var stats := $Stats
 onready var attackUp := $Stats/VBoxContainer/LevelUpContainer/AttackUp
 onready var levelUpContainer := $Stats/VBoxContainer/LevelUpContainer
@@ -77,15 +79,18 @@ func _on_AttackUp_pressed():
 	need_to_level_up = false
 	levelUpContainer.hide()
 	set_labels()
+	emit_signal("leveled_up", hero.LEVEL)
 	
 func _on_DefenseUp_pressed():
 	hero.defense_up()
 	need_to_level_up = false
 	levelUpContainer.hide()
 	set_labels()
+	emit_signal("leveled_up", hero.LEVEL)
 
 func _on_MagicUp_pressed():
 	hero.magic_up()
 	need_to_level_up = false
 	levelUpContainer.hide()
 	set_labels()
+	emit_signal("leveled_up", hero.LEVEL)

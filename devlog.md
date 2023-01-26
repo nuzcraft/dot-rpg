@@ -34,10 +34,11 @@ Idk if it's important to collect my thoughts, but here they are for now
     -[x] add limit to enemy spawner
     -[x] make enemies despawn after a bit
 -[x] focus on died screen buttons
--[ ] create more types of enemies
--[ ] create win condition
+-[x] create more types of enemies
+-[x] create win condition
 -[ ] first balance pass to make the game winnable
--[ ] update spawner to progressively spawn harder enemies
+-[x] update spawner to progressively spawn harder enemies
 -[ ] customize enemy attacks
 -[ ] customize enemy pathing on map
 -[ ] add signifier to battle screen to show what the enemy does
+-[ ] sounds

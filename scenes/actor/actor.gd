@@ -20,7 +20,6 @@ var defend_amount = 0
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	HP = MAX_HP
-	pass # Replace with function body.
 	
 func _physics_process(delta):
 	velocity = move_and_slide(velocity, Vector2.UP)

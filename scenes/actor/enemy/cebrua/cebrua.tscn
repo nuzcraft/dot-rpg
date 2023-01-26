@@ -5,4 +5,9 @@
 
 [node name="Cebrua" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
-ACTOR_NAME = "Actor"
+ACTOR_NAME = "Cebrua"
+LEVEL = 9
+MAX_HP = 15
+ATTACK = 3
+DEFENSE = 4
+MAGIC = 4
