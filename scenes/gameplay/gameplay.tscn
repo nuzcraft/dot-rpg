@@ -29,7 +29,7 @@ position = Vector2( 22, 16 )
 MAGIC = 2
 
 [node name="EnemySpawner" type="Timer" parent="."]
-wait_time = 10.0
+wait_time = 6.0
 autostart = true
 
 [connection signal="battle_exited" from="BattleLayer" to="." method="_on_BattleLayer_battle_exited"]

@@ -21,6 +21,14 @@ var game_state = EXPLORE
 
 var nopri_scene = preload("res://scenes/actor/enemy/nopri/nopri.tscn")
 var dhupem_scene = preload("res://scenes/actor/enemy/dhupem/dhupem.tscn")
+var kampan_scene = preload("res://scenes/actor/enemy/kampan/kampan.tscn")
+var osena_scene = preload("res://scenes/actor/enemy/osena/osena.tscn")
+var azlosa_scene = preload("res://scenes/actor/enemy/azlosa/azlosa.tscn")
+var uhorn_scene = preload("res://scenes/actor/enemy/uhorn/uhorn.tscn")
+var vargo_scene = preload("res://scenes/actor/enemy/vargo/vargo.tscn")
+var haidi_scene = preload("res://scenes/actor/enemy/haidi/haidi.tscn")
+var cebrua_scene = preload("res://scenes/actor/enemy/cebrua/cebrua.tscn")
+var dragon_scene = preload("res://scenes/actor/enemy/dragon/dragon.tscn")
 
 var enemy_spawn_chances = {
 	nopri_scene: .5,
@@ -49,6 +57,7 @@ func start():
 	rng.randomize()
 	statsLayer.set_hero(hero)
 	hero.connect("enemy_contact", self, "_on_Hero_enemy_contact")
+	hero.connect("need_to_level_up", self, "_on_Hero_need_to_level_up")
 	
 	spawn_random_enemy()
 	spawn_random_enemy()
@@ -83,6 +92,10 @@ func _on_Hero_enemy_contact(hero_param, enemy):
 	$EnemySpawner.paused = true
 	for enemy in get_tree().get_nodes_in_group("enemy"):
 		enemy.pause_timer()
+		
+func _on_Hero_need_to_level_up():
+	statsLayer.need_to_level_up = true
+	statsLayer.pause_game()
 	
 func _on_EnemySpawner_timeout():
 	var num_enemies = get_tree().get_nodes_in_group("enemy").size()

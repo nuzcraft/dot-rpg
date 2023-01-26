@@ -19,6 +19,7 @@ var defend_amount = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	HP = MAX_HP
 	pass # Replace with function body.
 	
 func _physics_process(delta):
@@ -74,19 +75,19 @@ func defend():
 func attack_up():
 	ATTACK += 1
 	LEVEL += 1
-	MAX_HP += 2
+	MAX_HP += 4
 	HP = MAX_HP
 	
 func defense_up():
 	DEFENSE += 1
 	LEVEL += 1
-	MAX_HP += 2
+	MAX_HP += 4
 	HP = MAX_HP
 	
 func magic_up():
 	MAGIC += 1
 	LEVEL += 1
-	MAX_HP += 2
+	MAX_HP += 4
 	HP = MAX_HP
 	
 func choose_turn():

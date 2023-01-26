@@ -6,3 +6,12 @@
 [node name="Dragon" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
 ACTOR_NAME = "Actor"
+
+[node name="ColorRect" parent="." index="0"]
+margin_left = 0.0
+margin_right = 1.0
+
+[node name="ColorRect2" parent="." index="1"]
+margin_left = -1.0
+margin_right = 2.0
+color = Color( 0.243137, 0.137255, 0.172549, 1 )
