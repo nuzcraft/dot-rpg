@@ -6,3 +6,4 @@
 [node name="Nopri" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
 ACTOR_NAME = "Nopri"
+MAX_HP = 3

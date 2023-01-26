@@ -12,6 +12,8 @@ onready var attack = $Battle/VBoxContainer/ActionContainer/VBoxContainer/Attack
 var hero
 var enemy
 
+var in_battle = false
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass
@@ -20,8 +22,12 @@ func _process(delta):
 	if is_instance_valid(enemy):
 		set_enemy_hp()
 	else:
-		battle.hide()
-		emit_signal("battle_exited")
+		if in_battle:
+			in_battle = false
+			battle.hide()
+			emit_signal("battle_exited")
+			hero.kills += 1
+			hero.check_for_level_up()
 	if hero:
 		set_hero_hp()
 	
@@ -33,6 +39,8 @@ func start_battle(hero_param, enemy_param):
 	set_enemy_hp()
 	set_hero_name()
 	set_hero_hp()
+	
+	in_battle = true
 	
 	attack.grab_focus()
 	

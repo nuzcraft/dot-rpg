@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://scenes/actor/enemy/enemy.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/actor/enemy/cebrua/cebrua.gd" type="Script" id=2]
+
+[node name="Cebrua" instance=ExtResource( 1 )]
+script = ExtResource( 2 )
+ACTOR_NAME = "Cebrua"
+LEVEL = 9
+MAX_HP = 15
+ATTACK = 3
+DEFENSE = 4
+MAGIC = 4

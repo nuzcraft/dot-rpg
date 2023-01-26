@@ -15,14 +15,34 @@ _global_script_classes=[ {
 "path": "res://scenes/actor/actor.gd"
 }, {
 "base": "Enemy",
+"class": "Azlosa",
+"language": "GDScript",
+"path": "res://scenes/actor/enemy/azlosa/azlosa.gd"
+}, {
+"base": "Enemy",
+"class": "Cebrua",
+"language": "GDScript",
+"path": "res://scenes/actor/enemy/cebrua/cebrua.gd"
+}, {
+"base": "Enemy",
 "class": "Dhupem",
 "language": "GDScript",
 "path": "res://scenes/actor/enemy/dhupem/dhupem.gd"
+}, {
+"base": "Enemy",
+"class": "Dragon",
+"language": "GDScript",
+"path": "res://scenes/actor/enemy/dragon/dragon.gd"
 }, {
 "base": "Actor",
 "class": "Enemy",
 "language": "GDScript",
 "path": "res://scenes/actor/enemy/enemy.gd"
+}, {
+"base": "Enemy",
+"class": "Haidi",
+"language": "GDScript",
+"path": "res://scenes/actor/enemy/haidi/haidi.gd"
 }, {
 "base": "Actor",
 "class": "Hero",
@@ -30,9 +50,19 @@ _global_script_classes=[ {
 "path": "res://scenes/actor/hero/hero.gd"
 }, {
 "base": "Enemy",
+"class": "Kampan",
+"language": "GDScript",
+"path": "res://scenes/actor/enemy/kampan/kampan.gd"
+}, {
+"base": "Enemy",
 "class": "Nopri",
 "language": "GDScript",
 "path": "res://scenes/actor/enemy/nopri/nopri.gd"
+}, {
+"base": "Enemy",
+"class": "Osena",
+"language": "GDScript",
+"path": "res://scenes/actor/enemy/osena/osena.gd"
 }, {
 "base": "Reference",
 "class": "SceneData",
@@ -48,16 +78,34 @@ _global_script_classes=[ {
 "class": "Transition",
 "language": "GDScript",
 "path": "res://addons/game-template/transition/transition.gd"
+}, {
+"base": "Enemy",
+"class": "Uhorn",
+"language": "GDScript",
+"path": "res://scenes/actor/enemy/uhorn/uhorn.gd"
+}, {
+"base": "Enemy",
+"class": "Vargo",
+"language": "GDScript",
+"path": "res://scenes/actor/enemy/vargo/vargo.gd"
 } ]
 _global_script_class_icons={
 "Actor": "",
+"Azlosa": "",
+"Cebrua": "",
 "Dhupem": "",
+"Dragon": "",
 "Enemy": "",
+"Haidi": "",
 "Hero": "",
+"Kampan": "",
 "Nopri": "",
+"Osena": "",
 "SceneData": "",
 "Scenes": "",
-"Transition": ""
+"Transition": "",
+"Uhorn": "",
+"Vargo": ""
 }
 
 [application]
@@ -67,7 +115,7 @@ run/main_scene="res://scenes/menu/menu.tscn"
 boot_splash/image="res://assets/splash.png"
 boot_splash/bg_color=Color( 0.0862745, 0.0862745, 0.0862745, 1 )
 config/icon="res://assets/sprites/icon.png"
-config/version="0.0.4"
+config/version="0.0.5"
 
 [autoload]
 

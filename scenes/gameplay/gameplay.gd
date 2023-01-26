@@ -21,10 +21,40 @@ var game_state = EXPLORE
 
 var nopri_scene = preload("res://scenes/actor/enemy/nopri/nopri.tscn")
 var dhupem_scene = preload("res://scenes/actor/enemy/dhupem/dhupem.tscn")
+var kampan_scene = preload("res://scenes/actor/enemy/kampan/kampan.tscn")
+var osena_scene = preload("res://scenes/actor/enemy/osena/osena.tscn")
+var azlosa_scene = preload("res://scenes/actor/enemy/azlosa/azlosa.tscn")
+var uhorn_scene = preload("res://scenes/actor/enemy/uhorn/uhorn.tscn")
+var vargo_scene = preload("res://scenes/actor/enemy/vargo/vargo.tscn")
+var haidi_scene = preload("res://scenes/actor/enemy/haidi/haidi.tscn")
+var cebrua_scene = preload("res://scenes/actor/enemy/cebrua/cebrua.tscn")
+var dragon_scene = preload("res://scenes/actor/enemy/dragon/dragon.tscn")
 
 var enemy_spawn_chances = {
-	nopri_scene: .5,
-	dhupem_scene: .5
+	1: {nopri_scene: 1.0},
+	2: {nopri_scene: 0.5,
+		dhupem_scene: 0.5},
+	3: {nopri_scene: 0.4,
+		dhupem_scene: 0.3,
+		kampan_scene: 0.3},
+	4: {dhupem_scene: 0.4,
+		kampan_scene: 0.3,
+		osena_scene: 0.3},
+	5: {kampan_scene: 0.4,
+		osena_scene: 0.3,
+		azlosa_scene: 0.3},
+	6: {osena_scene: 0.4,
+		azlosa_scene: 0.3,
+		uhorn_scene: 0.3},
+	7: {azlosa_scene: 0.4,
+		uhorn_scene: 0.3,
+		vargo_scene: 0.3},
+	8: {uhorn_scene: 0.4,
+		vargo_scene: 0.3,
+		haidi_scene: 0.3},
+	9: {vargo_scene: 0.4,
+		haidi_scene: 0.3,
+		cebrua_scene: 0.3},
 }
 
 var rng = RandomNumberGenerator.new()
@@ -49,6 +79,8 @@ func start():
 	rng.randomize()
 	statsLayer.set_hero(hero)
 	hero.connect("enemy_contact", self, "_on_Hero_enemy_contact")
+	hero.connect("need_to_level_up", self, "_on_Hero_need_to_level_up")
+	statsLayer.connect("leveled_up", self, "_on_StatsLayer_leveled_up")
 	
 	spawn_random_enemy()
 	spawn_random_enemy()
@@ -83,6 +115,10 @@ func _on_Hero_enemy_contact(hero_param, enemy):
 	$EnemySpawner.paused = true
 	for enemy in get_tree().get_nodes_in_group("enemy"):
 		enemy.pause_timer()
+		
+func _on_Hero_need_to_level_up():
+	statsLayer.need_to_level_up = true
+	statsLayer.pause_game()
 	
 func _on_EnemySpawner_timeout():
 	var num_enemies = get_tree().get_nodes_in_group("enemy").size()
@@ -92,8 +128,11 @@ func _on_EnemySpawner_timeout():
 func spawn_random_enemy():
 	var num = rng.randf()
 	var summed_chance = 0.0
-	for enemy_scene in enemy_spawn_chances:
-		summed_chance += enemy_spawn_chances[enemy_scene]
+	var hero_level = hero.LEVEL
+	if hero_level > 9:
+		hero_level = 9
+	for enemy_scene in enemy_spawn_chances[hero_level]:
+		summed_chance += enemy_spawn_chances[hero_level][enemy_scene]
 		if summed_chance >= num:
 			spawn_enemy(enemy_scene)
 			break
@@ -106,6 +145,7 @@ func spawn_enemy(scene):
 	add_child(obj)
 	obj.connect("despawn_timer_timeout", self, "_on_Enemy_despawn_timer_timeout")
 	print(obj.ACTOR_NAME, " spawned in.")
+	return obj
 
 func _on_BattleLayer_battle_exited():
 	$EnemySpawner.paused = false
@@ -115,4 +155,14 @@ func _on_BattleLayer_battle_exited():
 func _on_Enemy_despawn_timer_timeout(enemy):
 	enemy.queue_free()
 	print(enemy.ACTOR_NAME, " left the area.")
-
+	
+func _on_StatsLayer_leveled_up(level):
+	if level == 10:
+		var dragon = spawn_enemy(dragon_scene)
+		dragon.connect("dragon_defeated", self, "_on_Dragon_defeated")
+		
+func _on_Dragon_defeated():
+	var params = {
+		show_progress_bar = true
+	}
+	Game.change_scene("res://scenes/win/win.tscn", params)
