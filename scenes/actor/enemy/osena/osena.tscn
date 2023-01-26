@@ -7,5 +7,5 @@
 script = ExtResource( 2 )
 ACTOR_NAME = "Osena"
 LEVEL = 4
-MAX_HP = 7
+MAX_HP = 6
 MAGIC = 3

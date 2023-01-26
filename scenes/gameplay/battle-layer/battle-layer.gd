@@ -82,14 +82,15 @@ func _on_Run_pressed():
 	emit_signal("battle_exited")
 	
 func enemy_turn():
-	var turn = enemy.choose_turn()
-	var amount = 0
-	match turn:
-		"attack":
-			amount = hero.calc_damage(enemy.ATTACK)
-			print(enemy.ACTOR_NAME, " attacks ", hero.ACTOR_NAME, " for ", amount, " damage.")
-		"magic":
-			amount = hero.calc_magic_damage(enemy.MAGIC)
-			print(enemy.ACTOR_NAME, " casts magic at ", hero.ACTOR_NAME, " for ", amount, " damage.")
-	hero.take_damage(amount)
+	if not enemy.dead:
+		var turn = enemy.choose_turn()
+		var amount = 0
+		match turn:
+			"attack":
+				amount = hero.calc_damage(enemy.ATTACK)
+				print(enemy.ACTOR_NAME, " attacks ", hero.ACTOR_NAME, " for ", amount, " damage.")
+			"magic":
+				amount = hero.calc_magic_damage(enemy.MAGIC)
+				print(enemy.ACTOR_NAME, " casts magic at ", hero.ACTOR_NAME, " for ", amount, " damage.")
+		hero.take_damage(amount)
 	

@@ -6,14 +6,16 @@ signal need_to_level_up
 
 var level_up = {
 	1: 3,
-	2: 5,
-	3: 7,
+	2: 3,
+	3: 5,
 	4: 7,
 	5: 7,
 	6: 7,
 	7: 9,
 	8: 11,
-	9: 15,
+	9: 11,
+	10: 13,
+	11: 15
 }
 
 var kills = 0
@@ -33,8 +35,8 @@ func die():
 
 func check_for_level_up():
 	var temp_level = LEVEL
-	if temp_level > 9:
-		temp_level = 9
+	if temp_level > 11:
+		temp_level = 11
 	if kills >= level_up[temp_level]:
 		kills = 0
 		emit_signal("need_to_level_up")
