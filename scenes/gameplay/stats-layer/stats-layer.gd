@@ -17,6 +17,7 @@ onready var kill := $Stats/VBoxContainer/KillContainer/Kills
 
 var need_to_level_up = false
 var hero
+var on_stats = false
 
 func _ready():
 	if OS.has_touchscreen_ui_hint():
@@ -39,14 +40,20 @@ func _unhandled_input(event):
 		else:
 			pause_game()
 		get_tree().set_input_as_handled()
+	if on_stats:
+		if event.is_action_pressed("pause"):
+			resume()
+			get_tree().set_input_as_handled()
 
 func resume():
 	if not need_to_level_up:
 		get_tree().paused = false
+		on_stats = false
 		stats.hide()
 
 func pause_game():
 	get_tree().paused = true
+	on_stats = true
 	set_labels()
 	stats.show()
 	if need_to_level_up:

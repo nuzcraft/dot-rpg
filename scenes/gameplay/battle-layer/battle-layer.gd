@@ -9,6 +9,13 @@ onready var heroNameLabel = $Battle/VBoxContainer/HeroContainer/Name
 onready var heroHPLabel = $Battle/VBoxContainer/HeroContainer/HP
 onready var attack = $Battle/VBoxContainer/ActionContainer/VBoxContainer/Attack
 
+onready var heroDamageLabel = $Battle/HeroDamageLabel
+onready var enemyDamageLabel = $Battle/EnemyDamageLabel
+onready var enemyStatusLabel = $Battle/EnemyStatusLabel
+onready var heroDamageAnimationPlayer = $HeroDamageAnimationPlayer
+onready var enemyDamageAnimationPlayer = $EnemyDamageAnimationPlayer
+onready var enemyStatusAnimationPlayer = $EnemyStatusAnimationPlayer
+
 var hero
 var enemy
 
@@ -61,6 +68,9 @@ func set_hero_hp():
 func _on_Attack_pressed():
 	var amount = enemy.calc_damage(hero.ATTACK)
 	print(hero.ACTOR_NAME, " attacks ", enemy.ACTOR_NAME, " for ", amount, " damage.")
+	enemyDamageLabel.text = "ATK\n-" + str(amount)
+	enemyDamageAnimationPlayer.stop(true)
+	enemyDamageAnimationPlayer.play("enemy_damage")
 	enemy.take_damage(amount)
 	
 	enemy_turn()
@@ -68,6 +78,9 @@ func _on_Attack_pressed():
 func _on_Magic_pressed():
 	var amount = enemy.calc_magic_damage(hero.MAGIC)
 	print(hero.ACTOR_NAME, " casts magic at ", enemy.ACTOR_NAME, " for ", amount, " damage.")
+	enemyDamageLabel.text = "MAG\n-" + str(amount)
+	enemyDamageAnimationPlayer.stop(true)
+	enemyDamageAnimationPlayer.play("enemy_damage")
 	enemy.take_damage(amount)
 	enemy_turn()
 	
@@ -89,13 +102,25 @@ func enemy_turn():
 			"attack":
 				amount = hero.calc_damage(enemy.ATTACK)
 				print(enemy.ACTOR_NAME, " attacks ", hero.ACTOR_NAME, " for ", amount, " damage.")
+				heroDamageLabel.text = "ATK\n-" + str(amount)
+				heroDamageAnimationPlayer.stop(true)
+				heroDamageAnimationPlayer.play("hero_damage")
 			"magic":
 				amount = hero.calc_magic_damage(enemy.MAGIC)
 				print(enemy.ACTOR_NAME, " casts magic at ", hero.ACTOR_NAME, " for ", amount, " damage.")
+				heroDamageLabel.text = "MAG\n-" + str(amount)
+				heroDamageAnimationPlayer.stop(true)
+				heroDamageAnimationPlayer.play("hero_damage")
 			"wait":
 				print(enemy.ACTOR_NAME, " stops to take a deep breath.")
+				enemyStatusLabel.text = "WAIT"
+				enemyStatusAnimationPlayer.stop(true)
+				enemyStatusAnimationPlayer.play("enemy_status")
 			"defend":
 				enemy.defend()
 				print(enemy.ACTOR_NAME, " steels themself for a strike.")
+				enemyStatusLabel.text = "DEF"
+				enemyStatusAnimationPlayer.stop(true)
+				enemyStatusAnimationPlayer.play("enemy_status")
 		hero.take_damage(amount)
 	
