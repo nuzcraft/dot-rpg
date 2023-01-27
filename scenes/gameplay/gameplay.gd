@@ -122,7 +122,10 @@ func _on_Hero_need_to_level_up():
 	
 func _on_EnemySpawner_timeout():
 	var num_enemies = get_tree().get_nodes_in_group("enemy").size()
-	if num_enemies <= 5:
+	if num_enemies <= 7:
+		spawn_random_enemy()
+	elif num_enemies < 3:
+		spawn_random_enemy()
 		spawn_random_enemy()
 
 func spawn_random_enemy():
