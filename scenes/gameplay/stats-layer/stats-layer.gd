@@ -41,7 +41,7 @@ func _unhandled_input(event):
 			pause_game()
 		get_tree().set_input_as_handled()
 	if on_stats:
-		if event.is_action_pressed("pause"):
+		if event.is_action_pressed("pause") or event.is_action_pressed("ui_accept"):
 			resume()
 			get_tree().set_input_as_handled()
 
