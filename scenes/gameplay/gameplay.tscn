@@ -9,7 +9,7 @@
 [node name="Gameplay" type="Node"]
 script = ExtResource( 5 )
 
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="ShakeCamera" type="Camera2D" parent="."]
 position = Vector2( 64, 36 )
 current = true
 

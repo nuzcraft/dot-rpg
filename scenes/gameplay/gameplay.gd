@@ -1,6 +1,6 @@
 extends Node
 
-onready var camera_pos = $Camera2D.global_position
+onready var camera_pos = $ShakeCamera.global_position
 onready var camera_bounds = {
 	"top": camera_pos.y - Game.size.y / 2,
 	"bottom": camera_pos.y + Game.size.y / 2 - 1,
@@ -81,6 +81,7 @@ func start():
 	hero.connect("enemy_contact", self, "_on_Hero_enemy_contact")
 	hero.connect("need_to_level_up", self, "_on_Hero_need_to_level_up")
 	statsLayer.connect("leveled_up", self, "_on_StatsLayer_leveled_up")
+	battleLayer.connect("shake", self, "_on_BattleLayer_shake")
 	
 	spawn_random_enemy()
 	spawn_random_enemy()
@@ -124,7 +125,7 @@ func _on_EnemySpawner_timeout():
 	var num_enemies = get_tree().get_nodes_in_group("enemy").size()
 	if num_enemies <= 7:
 		spawn_random_enemy()
-	elif num_enemies < 3:
+	elif num_enemies <= 3:
 		spawn_random_enemy()
 		spawn_random_enemy()
 
@@ -169,3 +170,7 @@ func _on_Dragon_defeated():
 		show_progress_bar = true
 	}
 	Game.change_scene("res://scenes/win/win.tscn", params)
+	
+func _on_BattleLayer_shake(amount):
+#	$ShakeCamera.add_stress(amount)
+	pass

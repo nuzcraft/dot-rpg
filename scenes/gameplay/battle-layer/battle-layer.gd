@@ -1,6 +1,7 @@
 extends CanvasLayer
 
 signal battle_exited
+signal shake
 
 onready var battle = $Battle
 onready var enemyNameLabel = $Battle/VBoxContainer/EnemyContainer/Name
@@ -72,6 +73,7 @@ func _on_Attack_pressed():
 	enemyDamageAnimationPlayer.stop(true)
 	enemyDamageAnimationPlayer.play("enemy_damage")
 	enemy.take_damage(amount)
+	emit_signal("shake", 0.5)
 	
 	enemy_turn()
 
