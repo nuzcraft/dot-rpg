@@ -25,27 +25,26 @@ custom_constants/separation = 0
 alignment = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Stats/VBoxContainer"]
-margin_top = 9.0
 margin_right = 128.0
-margin_bottom = 27.0
+margin_bottom = 18.0
 alignment = 1
 
 [node name="Name" type="Label" parent="Stats/VBoxContainer/HBoxContainer"]
 margin_left = 12.0
 margin_right = 50.0
-margin_bottom = 12.0
+margin_bottom = 18.0
 text = "Hero"
 
 [node name="HP" type="Label" parent="Stats/VBoxContainer/HBoxContainer"]
 margin_left = 54.0
 margin_right = 116.0
-margin_bottom = 11.0
+margin_bottom = 18.0
 text = "HP8/10"
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="Stats/VBoxContainer"]
-margin_top = 27.0
+margin_top = 18.0
 margin_right = 128.0
-margin_bottom = 63.0
+margin_bottom = 54.0
 alignment = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Stats/VBoxContainer/HBoxContainer2"]
@@ -121,6 +120,17 @@ focus_neighbour_right = NodePath("../AttackUp")
 focus_next = NodePath("../AttackUp")
 focus_previous = NodePath("../DefenseUp")
 text = "MAG"
+
+[node name="KillContainer" type="VBoxContainer" parent="Stats/VBoxContainer"]
+margin_top = 54.0
+margin_right = 128.0
+margin_bottom = 72.0
+
+[node name="Kills" type="Label" parent="Stats/VBoxContainer/KillContainer"]
+margin_right = 128.0
+margin_bottom = 18.0
+text = "KILLS LEFT:3"
+align = 1
 
 [connection signal="pressed" from="Stats/VBoxContainer/LevelUpContainer/AttackUp" to="." method="_on_AttackUp_pressed"]
 [connection signal="pressed" from="Stats/VBoxContainer/LevelUpContainer/DefenseUp" to="." method="_on_DefenseUp_pressed"]

@@ -7,6 +7,6 @@
 script = ExtResource( 2 )
 ACTOR_NAME = "Azlosa"
 LEVEL = 5
-MAX_HP = 7
+MAX_HP = 6
 ATTACK = 4
 MAGIC = 4

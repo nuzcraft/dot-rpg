@@ -5,6 +5,7 @@ signal leveled_up
 onready var stats := $Stats
 onready var attackUp := $Stats/VBoxContainer/LevelUpContainer/AttackUp
 onready var levelUpContainer := $Stats/VBoxContainer/LevelUpContainer
+onready var killContainer := $Stats/VBoxContainer/KillContainer
 
 onready var hero_name := $Stats/VBoxContainer/HBoxContainer/Name
 onready var hp := $Stats/VBoxContainer/HBoxContainer/HP
@@ -12,9 +13,11 @@ onready var level := $Stats/VBoxContainer/HBoxContainer2/VBoxContainer/Level
 onready var magic := $Stats/VBoxContainer/HBoxContainer2/VBoxContainer/Magic
 onready var attack := $Stats/VBoxContainer/HBoxContainer2/VBoxContainer2/Attack
 onready var defense := $Stats/VBoxContainer/HBoxContainer2/VBoxContainer2/Defense
+onready var kill := $Stats/VBoxContainer/KillContainer/Kills
 
 var need_to_level_up = false
 var hero
+var on_stats = false
 
 func _ready():
 	if OS.has_touchscreen_ui_hint():
@@ -37,18 +40,25 @@ func _unhandled_input(event):
 		else:
 			pause_game()
 		get_tree().set_input_as_handled()
+	if on_stats:
+		if event.is_action_pressed("pause"):
+			resume()
+			get_tree().set_input_as_handled()
 
 func resume():
 	if not need_to_level_up:
 		get_tree().paused = false
+		on_stats = false
 		stats.hide()
 
 func pause_game():
 	get_tree().paused = true
+	on_stats = true
 	set_labels()
 	stats.show()
 	if need_to_level_up:
 		levelUpContainer.show()
+		killContainer.hide()
 		attackUp.grab_focus()
 		
 func set_hero(actor):
@@ -73,11 +83,13 @@ func set_labels():
 		defense.text = "DEF0" + str(hero.DEFENSE)
 	else:
 		defense.text = "DEF" + str(hero.DEFENSE)
+	kill.text = "KILLS LEFT:" + str(hero.level_up[hero.LEVEL] - hero.kills)
 
 func _on_AttackUp_pressed():
 	hero.attack_up()
 	need_to_level_up = false
 	levelUpContainer.hide()
+	killContainer.show()
 	set_labels()
 	emit_signal("leveled_up", hero.LEVEL)
 	
@@ -85,6 +97,7 @@ func _on_DefenseUp_pressed():
 	hero.defense_up()
 	need_to_level_up = false
 	levelUpContainer.hide()
+	killContainer.show()
 	set_labels()
 	emit_signal("leveled_up", hero.LEVEL)
 
@@ -92,5 +105,6 @@ func _on_MagicUp_pressed():
 	hero.magic_up()
 	need_to_level_up = false
 	levelUpContainer.hide()
+	killContainer.show()
 	set_labels()
 	emit_signal("leveled_up", hero.LEVEL)

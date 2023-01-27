@@ -4,6 +4,7 @@ class_name Enemy
 signal despawn_timer_timeout
 
 func die():
+	dead = true
 	print(ACTOR_NAME, " died.")
 	queue_free()
 

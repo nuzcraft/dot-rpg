@@ -27,7 +27,7 @@ Idk if it's important to collect my thoughts, but here they are for now
 * added enemy turns after hero takes turn
 * added a gameover / restart screen
 
-### 2023.01.23 and 24 and 25
+### 2023.01.23 and 24 and 25 and 26
 -[x] itch.io page
 -[x] update github actions to deploy to itch
 -[x] create enemy spawner
@@ -36,9 +36,13 @@ Idk if it's important to collect my thoughts, but here they are for now
 -[x] focus on died screen buttons
 -[x] create more types of enemies
 -[x] create win condition
--[ ] first balance pass to make the game winnable
+-[x] first balance pass to make the game winnable
 -[x] update spawner to progressively spawn harder enemies
+-[x] kill countdown for level up
 -[ ] customize enemy attacks
 -[ ] customize enemy pathing on map
 -[ ] add signifier to battle screen to show what the enemy does
 -[ ] sounds
+-[ ] touch controls
+-[ ] debug mobile build
+-[ ] debug fullscreen mode
