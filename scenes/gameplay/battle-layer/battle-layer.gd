@@ -92,5 +92,8 @@ func enemy_turn():
 			"magic":
 				amount = hero.calc_magic_damage(enemy.MAGIC)
 				print(enemy.ACTOR_NAME, " casts magic at ", hero.ACTOR_NAME, " for ", amount, " damage.")
+			"wait":
+				amount = 0
+				print(enemy.ACTOR_NAME, " stops to take a deep breath.")
 		hero.take_damage(amount)
 	
