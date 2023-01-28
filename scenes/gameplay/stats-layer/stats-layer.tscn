@@ -29,15 +29,21 @@ margin_right = 128.0
 margin_bottom = 18.0
 alignment = 1
 
+[node name="Exit" type="Button" parent="Stats/VBoxContainer/HBoxContainer"]
+margin_left = 5.0
+margin_right = 15.0
+margin_bottom = 18.0
+text = "X"
+
 [node name="Name" type="Label" parent="Stats/VBoxContainer/HBoxContainer"]
-margin_left = 12.0
-margin_right = 50.0
+margin_left = 19.0
+margin_right = 57.0
 margin_bottom = 18.0
 text = "Hero"
 
 [node name="HP" type="Label" parent="Stats/VBoxContainer/HBoxContainer"]
-margin_left = 54.0
-margin_right = 116.0
+margin_left = 61.0
+margin_right = 123.0
 margin_bottom = 18.0
 text = "HP8/10"
 
@@ -132,6 +138,7 @@ margin_bottom = 18.0
 text = "KILLS LEFT:3"
 align = 1
 
+[connection signal="pressed" from="Stats/VBoxContainer/HBoxContainer/Exit" to="." method="_on_Exit_pressed"]
 [connection signal="pressed" from="Stats/VBoxContainer/LevelUpContainer/AttackUp" to="." method="_on_AttackUp_pressed"]
 [connection signal="pressed" from="Stats/VBoxContainer/LevelUpContainer/DefenseUp" to="." method="_on_DefenseUp_pressed"]
 [connection signal="pressed" from="Stats/VBoxContainer/LevelUpContainer/MagicUp" to="." method="_on_MagicUp_pressed"]

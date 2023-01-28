@@ -43,8 +43,8 @@ Idk if it's important to collect my thoughts, but here they are for now
 -[x] add signifier to battle screen to show what the enemy does
 -[x] sounds
 -[x] touch controls
--[ ] debug mobile build
+-[x] debug mobile build
+-[x] debug fullscreen mode
 
--[ ] debug fullscreen mode
 -[ ] customize enemy pathing on map
 -[ ] screenshake (not working with the canvaslayers I have)
