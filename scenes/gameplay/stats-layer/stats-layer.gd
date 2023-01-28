@@ -113,3 +113,6 @@ func _on_MagicUp_pressed():
 	killContainer.show()
 	set_labels()
 	emit_signal("leveled_up", hero.LEVEL)
+
+func _on_Exit_pressed():
+	resume()

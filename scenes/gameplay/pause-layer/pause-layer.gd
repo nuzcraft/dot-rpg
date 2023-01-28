@@ -8,11 +8,10 @@ onready var resume_option := $Pause/VBoxContainer/HBoxContainer/Resume
 func _ready():
 	if OS.has_touchscreen_ui_hint():
 #		label.visible = false
-		pass
+		pause_button.show()
 	else:
 		# to hide the pause_button on desktop: un-comment the next line
-		# pause_button.hide()
-		pass
+		pause_button.hide()
 
 
 # when the node is removed from the tree (mostly because of a scene change)
