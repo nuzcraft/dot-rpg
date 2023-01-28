@@ -7,6 +7,7 @@ func _ready():
 	$MainContainer/LeftContainer/PlayButton.grab_focus()
 	if OS.has_feature('HTML5'):
 		$MainContainer/LeftContainer/ExitButton.queue_free()
+	VisualServer.set_default_clear_color(Color(0.93, 0.96, 0.84, 1.0))
 
 
 func _on_PlayButton_pressed() -> void:
