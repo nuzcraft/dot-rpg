@@ -95,6 +95,9 @@ func _physics_process(delta):
 	input.x = Input.get_axis("ui_left", "ui_right")
 	input.y = Input.get_axis("ui_up", "ui_down")
 	
+	if Input.is_mouse_button_pressed(1):
+		input = hero.global_position.direction_to(get_viewport().get_mouse_position()).normalized()	
+	
 	match game_state:
 		EXPLORE: explore_state(input, delta)
 	

@@ -42,7 +42,7 @@ Idk if it's important to collect my thoughts, but here they are for now
 -[x] customize enemy attacks
 -[x] add signifier to battle screen to show what the enemy does
 -[x] sounds
--[ ] touch controls
+-[x] touch controls
 -[ ] debug mobile build
 
 -[ ] debug fullscreen mode
