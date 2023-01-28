@@ -10,13 +10,16 @@ func _ready():
 
 
 func _on_PlayButton_pressed() -> void:
+	SoundPlayer.play_sound(SoundPlayer.CLICK)
 	var params = {
 		show_progress_bar = true
 	}
 	Game.change_scene("res://scenes/gameplay/gameplay.tscn", params)
+	SoundPlayer.play_music(SoundPlayer.MUSIC)
 
 
 func _on_ExitButton_pressed() -> void:
+	SoundPlayer.play_sound(SoundPlayer.CLICK)
 	# gently shutdown the game
 	var transitions = get_node_or_null("/root/Transitions")
 	if transitions:

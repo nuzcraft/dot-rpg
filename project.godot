@@ -122,6 +122,7 @@ config/version="0.0.5"
 Game="*res://addons/game-template/game.gd"
 Transitions="*res://addons/game-template/transition/transition.tscn"
 Utils="*res://addons/game-template/utils.gd"
+SoundPlayer="*res://scenes/gameplay/sound-player/sound-player.tscn"
 
 [category]
 
@@ -140,6 +141,13 @@ window/stretch/aspect="expand"
 [editor_plugins]
 
 enabled=PoolStringArray( "res://addons/game-template/plugin.cfg" )
+
+[importer_defaults]
+
+ogg_vorbis={
+"loop": false,
+"loop_offset": 0
+}
 
 [input]
 

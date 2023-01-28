@@ -41,9 +41,10 @@ Idk if it's important to collect my thoughts, but here they are for now
 -[x] kill countdown for level up
 -[x] customize enemy attacks
 -[x] add signifier to battle screen to show what the enemy does
--[ ] sounds
--[ ] screenshake
+-[x] sounds
 -[ ] touch controls
 -[ ] debug mobile build
+
 -[ ] debug fullscreen mode
 -[ ] customize enemy pathing on map
+-[ ] screenshake (not working with the canvaslayers I have)

@@ -112,6 +112,7 @@ func explore_state(input, delta):
 	hero.apply_friction(input, delta)
 	
 func _on_Hero_enemy_contact(hero_param, enemy):
+	SoundPlayer.play_sound(SoundPlayer.ENEMY_CONTACT)
 	battleLayer.start_battle(hero_param, enemy)
 	$EnemySpawner.paused = true
 	for enemy in get_tree().get_nodes_in_group("enemy"):
@@ -149,6 +150,7 @@ func spawn_enemy(scene):
 	add_child(obj)
 	obj.connect("despawn_timer_timeout", self, "_on_Enemy_despawn_timer_timeout")
 	print(obj.ACTOR_NAME, " spawned in.")
+	SoundPlayer.play_sound(SoundPlayer.ENEMY_SPAWN)
 	return obj
 
 func _on_BattleLayer_battle_exited():
