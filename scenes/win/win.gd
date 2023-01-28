@@ -1,6 +1,7 @@
 extends Control
 
 func _ready():
+	SoundPlayer.play_sound(SoundPlayer.WIN)
 	$"VBoxContainer/Again!".grab_focus()
 
 func _on_Again_pressed():

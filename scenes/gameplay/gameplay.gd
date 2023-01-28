@@ -1,6 +1,6 @@
 extends Node
 
-onready var camera_pos = $Camera2D.global_position
+onready var camera_pos = $ShakeCamera.global_position
 onready var camera_bounds = {
 	"top": camera_pos.y - Game.size.y / 2,
 	"bottom": camera_pos.y + Game.size.y / 2 - 1,
@@ -81,6 +81,7 @@ func start():
 	hero.connect("enemy_contact", self, "_on_Hero_enemy_contact")
 	hero.connect("need_to_level_up", self, "_on_Hero_need_to_level_up")
 	statsLayer.connect("leveled_up", self, "_on_StatsLayer_leveled_up")
+	battleLayer.connect("shake", self, "_on_BattleLayer_shake")
 	
 	spawn_random_enemy()
 	spawn_random_enemy()
@@ -93,6 +94,9 @@ func _physics_process(delta):
 	var input = Vector2.ZERO
 	input.x = Input.get_axis("ui_left", "ui_right")
 	input.y = Input.get_axis("ui_up", "ui_down")
+	
+	if Input.is_mouse_button_pressed(1):
+		input = hero.global_position.direction_to(get_viewport().get_mouse_position()).normalized()	
 	
 	match game_state:
 		EXPLORE: explore_state(input, delta)
@@ -111,6 +115,7 @@ func explore_state(input, delta):
 	hero.apply_friction(input, delta)
 	
 func _on_Hero_enemy_contact(hero_param, enemy):
+	SoundPlayer.play_sound(SoundPlayer.ENEMY_CONTACT)
 	battleLayer.start_battle(hero_param, enemy)
 	$EnemySpawner.paused = true
 	for enemy in get_tree().get_nodes_in_group("enemy"):
@@ -122,7 +127,10 @@ func _on_Hero_need_to_level_up():
 	
 func _on_EnemySpawner_timeout():
 	var num_enemies = get_tree().get_nodes_in_group("enemy").size()
-	if num_enemies <= 5:
+	if num_enemies <= 7:
+		spawn_random_enemy()
+	elif num_enemies <= 3:
+		spawn_random_enemy()
 		spawn_random_enemy()
 
 func spawn_random_enemy():
@@ -145,6 +153,7 @@ func spawn_enemy(scene):
 	add_child(obj)
 	obj.connect("despawn_timer_timeout", self, "_on_Enemy_despawn_timer_timeout")
 	print(obj.ACTOR_NAME, " spawned in.")
+	SoundPlayer.play_sound(SoundPlayer.ENEMY_SPAWN)
 	return obj
 
 func _on_BattleLayer_battle_exited():
@@ -166,3 +175,7 @@ func _on_Dragon_defeated():
 		show_progress_bar = true
 	}
 	Game.change_scene("res://scenes/win/win.tscn", params)
+	
+func _on_BattleLayer_shake(amount):
+#	$ShakeCamera.add_stress(amount)
+	pass

@@ -1,6 +1,7 @@
 extends CanvasLayer
 
 signal battle_exited
+signal shake
 
 onready var battle = $Battle
 onready var enemyNameLabel = $Battle/VBoxContainer/EnemyContainer/Name
@@ -66,16 +67,19 @@ func set_hero_hp():
 	heroHPLabel.text = str(hero.HP) + "/" + str(hero.MAX_HP)
 
 func _on_Attack_pressed():
+	SoundPlayer.play_sound(SoundPlayer.CLICK)
 	var amount = enemy.calc_damage(hero.ATTACK)
 	print(hero.ACTOR_NAME, " attacks ", enemy.ACTOR_NAME, " for ", amount, " damage.")
 	enemyDamageLabel.text = "ATK\n-" + str(amount)
 	enemyDamageAnimationPlayer.stop(true)
 	enemyDamageAnimationPlayer.play("enemy_damage")
 	enemy.take_damage(amount)
+	emit_signal("shake", 0.5)
 	
 	enemy_turn()
 
 func _on_Magic_pressed():
+	SoundPlayer.play_sound(SoundPlayer.CLICK)
 	var amount = enemy.calc_magic_damage(hero.MAGIC)
 	print(hero.ACTOR_NAME, " casts magic at ", enemy.ACTOR_NAME, " for ", amount, " damage.")
 	enemyDamageLabel.text = "MAG\n-" + str(amount)
@@ -85,11 +89,13 @@ func _on_Magic_pressed():
 	enemy_turn()
 	
 func _on_Defend_pressed():
+	SoundPlayer.play_sound(SoundPlayer.CLICK)
 	print(hero.ACTOR_NAME, " steels themself for a strike.")
 	hero.defend()
 	enemy_turn()
 
 func _on_Run_pressed():
+	SoundPlayer.play_sound(SoundPlayer.CLICK)
 	print(hero.ACTOR_NAME, " flees!")
 	battle.hide()
 	emit_signal("battle_exited")
