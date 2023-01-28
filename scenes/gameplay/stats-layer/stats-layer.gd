@@ -6,6 +6,7 @@ onready var stats := $Stats
 onready var attackUp := $Stats/VBoxContainer/LevelUpContainer/AttackUp
 onready var levelUpContainer := $Stats/VBoxContainer/LevelUpContainer
 onready var killContainer := $Stats/VBoxContainer/KillContainer
+onready var exitButton := $Stats/VBoxContainer/HBoxContainer/Exit
 
 onready var hero_name := $Stats/VBoxContainer/HBoxContainer/Name
 onready var hp := $Stats/VBoxContainer/HBoxContainer/HP
@@ -61,6 +62,7 @@ func pause_game():
 	if need_to_level_up:
 		levelUpContainer.show()
 		killContainer.hide()
+		exitButton.hide()
 		attackUp.grab_focus()
 		
 func set_hero(actor):
@@ -93,6 +95,7 @@ func _on_AttackUp_pressed():
 	need_to_level_up = false
 	levelUpContainer.hide()
 	killContainer.show()
+	exitButton.show()
 	set_labels()
 	emit_signal("leveled_up", hero.LEVEL)
 	
@@ -102,6 +105,7 @@ func _on_DefenseUp_pressed():
 	need_to_level_up = false
 	levelUpContainer.hide()
 	killContainer.show()
+	exitButton.show()
 	set_labels()
 	emit_signal("leveled_up", hero.LEVEL)
 
@@ -111,6 +115,7 @@ func _on_MagicUp_pressed():
 	need_to_level_up = false
 	levelUpContainer.hide()
 	killContainer.show()
+	exitButton.show()
 	set_labels()
 	emit_signal("leveled_up", hero.LEVEL)
 
