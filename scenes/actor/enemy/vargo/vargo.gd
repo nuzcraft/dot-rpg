@@ -10,4 +10,5 @@ func choose_turn():
 			return "magic"
 		return "attack"
 	else:
+		attack_this_turn = true
 		return "defend"
