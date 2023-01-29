@@ -59,7 +59,7 @@ func die():
 	print(ACTOR_NAME, " died.")
 	
 func calc_damage(incoming_damage):
-	var amount = incoming_damage - floor((DEFENSE) / 2) + defend_amount
+	var amount = incoming_damage - (floor((DEFENSE) / 2) + defend_amount)
 	if amount < 0:
 		amount = 0
 	return amount
