@@ -114,7 +114,7 @@ config/name=".rpg"
 run/main_scene="res://scenes/menu/menu.tscn"
 boot_splash/image="res://assets/splash.png"
 boot_splash/bg_color=Color( 0.0862745, 0.0862745, 0.0862745, 1 )
-config/icon="res://assets/sprites/icon.png"
+config/icon="res://assets/sprites/godot-icon.png"
 config/version="v1.0"
 
 [autoload]
