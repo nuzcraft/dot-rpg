@@ -14,6 +14,14 @@ This game was created for [GDFG's Monthly Game Jam #22](https://itch.io/jam/gdfg
 
 The game is _probably_ beatable 😆 Please raise issues for any bugs that you find!
 
+## Screenshots
+
+![screenshot of battle screen](assets/marketing/screenshot_battle.png)
+
+![screenshot of explore mode](assets/marketing/screenshot_explore.png)
+
+![screenshot of level up](assets/marketing/screenshot_lvlup.png)
+
 ## Controls
 
 - Arrow Keys to move around
@@ -25,8 +33,8 @@ The game is _probably_ beatable 😆 Please raise issues for any bugs that you f
 
 ## Credits
 
-Programming and Art by [nuzcraft](https://nuzcraft.itch.io/)
-Font by [Mash Arcade](https://masharcade.itch.io/bitty)
-Sounds by [Kenney](https://kenney.nl/)
-Music by [Brandon Morris](https://opengameart.org/content/bleeding-out)
-Project Template by [Crystal Bit](https://github.com/crystal-bit/godot-game-template)
+- Programming and Art by [nuzcraft](https://nuzcraft.itch.io/)
+- Font by [Mash Arcade](https://masharcade.itch.io/bitty)
+- Sounds by [Kenney](https://kenney.nl/)
+- Music by [Brandon Morris](https://opengameart.org/content/bleeding-out)
+- Project Template by [Crystal Bit](https://github.com/crystal-bit/godot-game-template)
